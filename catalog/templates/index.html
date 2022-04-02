@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>Local Library Home</title>{% endblock title %}
+{% block content %}
+  <h1>Local Library Home</h1>
+  <p>Welcome to LocalLibrary, a website developed by <em>Mozilla Developer Network</em>!</p>
+  <p><i>You have visited this page <span class='text-primary'>{{ num_visits }} time{{ num_visits|pluralize }}.</span></i></p>
+  <h2>Dynamic content</h2>
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <li><strong>Genre:</strong> {{ num_authors }}</li>
+  </ul>
+  
+  <p>Book counts by Genres:</p>
+  <ul>
+    <li><strong>Jewish Literature:</strong> {{ num_jewishlit }}</li>
+    <li><strong>Persional Narrative:</strong> {{ num_persionaln_arrative }}</li>
+    <li><strong>Autobiography:</strong> {{ num_autobiography }}</li>
+    <li><strong>Biography:</strong> {{ num_biography }}</li>
+    <li><strong>Drama:</strong> {{ num_drama }}</li>
+    <li><strong>Fiction:</strong> {{ num_fiction }}</li>
+    <li><strong>Self-help:</strong> {{ num_Selfhelp }}</li>
+  </ul>
+
+{% endblock %}

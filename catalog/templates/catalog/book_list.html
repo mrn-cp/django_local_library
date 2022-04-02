@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Book List</h1>
+  {% if perms.catalog.can_mark_returned %}
+  <p>Office use only<a href="{% url 'book-create' %}">
+    <button class='text-success'>
+        Create New Book
+    </button>
+  {% endif %}
+  </a></p>
+  {% if book_list %}
+  <ul>
+    {% for book in book_list %}
+      <li>
+        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}}) <br>
+        {% if perms.catalog.can_mark_returned %}
+          <p> Office use only
+          <a href="{{book.id}}/update/">
+              <button class='text-success'>
+                  Update
+              </button>
+          </a>
+          <a href="{{book.id}}/delete/">
+            <button class='text-danger'>
+                Delete
+            </button>
+          </a></p>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %}
+{% endblock %}
